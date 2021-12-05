@@ -1,0 +1,21 @@
+# Build and run image
+docker-compose up --build
+
+# List of all images
+docker images
+
+# List of containers in the current project
+docker-compose ps
+
+# List of all containers running
+docker ps
+
+# remove a docker image so you can rebuild it with the same name
+docker-compose rm -f
+
+# remove dangling images sitting around, taking up space
+docker rmi -f $(docker images -qf dangling=true)
+
+# docker-compose.yml notes
+adding a --reload flag to gunicorn says to reload on file changes
+setting the environment: PYTHONUNBUFFERED: 'true' allows for real-time logging output
